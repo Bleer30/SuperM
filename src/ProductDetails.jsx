@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import { NavLink, useParams, useMatch } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import useFetch from './useFetch';
 import ProductDetailInfo from './ProductDetailInfo';
@@ -10,7 +10,7 @@ const ProductDetails = props => {
   const [product, setProduct] = useState({});
   const { get } = useFetch('https://react-tutorial-demo.firebaseio.com/');
   const params = useParams();
-  const match = useRouteMatch();
+  const match = useMatch();
 
   useEffect(() => {
     get(`productinfo/id${params.id}.json`)
@@ -63,7 +63,7 @@ const ProductDetails = props => {
         <Router>
           <Routes>
             <Route
-              path={match.path}
+              to={match.path}
               element={
                 <ProductDetailInfo
                   product={product}
@@ -72,11 +72,11 @@ const ProductDetails = props => {
               }
             />
             <Route
-              path={match.path + '/nutrition'}
+              to={match.path + '/nutrition'}
               element={<ProductDetailNutrition nutrition={product.nutrition} />}
             />
             <Route
-              path={match.path + '/storage'}
+              to={match.path + '/storage'}
               element={<ProductDetailStorage storage={product.storage} />}
             />
           </Routes>

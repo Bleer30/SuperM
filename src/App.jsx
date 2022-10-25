@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Products from './Products';
+import ProductDetails from './ProductDetails';
 import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
@@ -58,6 +59,10 @@ function App() {
                   onProductDelete={handleProductDelete}
                 />
               }
+            />
+            <Route
+              path="/products/:id"
+              element={<ProductDetails onProductAdd={handleProductAdd} />}
             />
             <Route path="/cart" element={<Cart cart={cart} />} />
           </Route>
