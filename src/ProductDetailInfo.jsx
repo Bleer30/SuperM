@@ -1,0 +1,16 @@
+import Button from './Button';
+
+const ProductDetailInfo = props => {
+  const { product, onProductAdd } = props;
+  return (
+    <>
+      <p>
+        {product.description} sold at <strong>${product.price}</strong> per
+        piece.
+      </p>
+      <Button onClick={() => onProductAdd(product)}>${product.price}</Button>
+    </>
+  );
+};
+
+export default ProductDetailInfo;
