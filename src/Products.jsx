@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Product from './Product';
+import useFetch from './useFetch';
+import Loader from './Loader';
 
-const Product = props => {
+const Products = props => {
   const [products, setProducts] = useState([]);
   const { get, loading } = useFetch(
     'https://react-tutorial-demo.firebaseio.com/',
@@ -29,7 +31,7 @@ const Product = props => {
               details={product}
               onProductAdd={props.onProductAdd}
               onProductDelete={props.onProductDelete}
-            ></Product>
+            />
           );
         })}
       </div>
@@ -37,4 +39,4 @@ const Product = props => {
   );
 };
 
-export default Product;
+export default Products;

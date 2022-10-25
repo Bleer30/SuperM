@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Button from './Button';
 
 const Product = props => {
@@ -10,15 +9,13 @@ const Product = props => {
   return (
     <div className="product">
       <div className="product-image-container">
-        <Link to={`/products/${details.id}`}>
-          <img
-            src={details.image}
-            width="100"
-            height="100"
-            className="product-image"
-            alt={details.name}
-          />
-        </Link>
+        <img
+          src={details.image}
+          width="100"
+          height="100"
+          className="product-image"
+          alt={details.name}
+        />
         {quantity > 0 && (
           <div className="product-quantity-container">
             <div className="product-quantity">{quantity}</div>

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 const Button = props => {
   const { children, outline, className, ...rest } = props;
 

@@ -7,7 +7,7 @@ const stripeLoadedPromise = loadStripe(
   'pk_test_51HsqkCGuhXEITAut89vmc4jtjYd7XPs8hWfo2XPef15MFqI8rCFc8NqQU9WutlUBsd8kmNqHBeEmSrdMMpeEEyfT00KzeVdate',
 );
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   const totalPrice = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0,

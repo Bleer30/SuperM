@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
-import {
-  NavLink,
-  Switch,
-  Route,
-  useParams,
-  useRouteMatch,
-} from 'react-router-dom';
+import { NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import useFetch from './useFetch';
 import ProductDetailInfo from './ProductDetailInfo';
 import ProductDetailNutrition from './ProductDetailNutrition';
@@ -65,22 +60,27 @@ const ProductDetails = props => {
             </li>
           </ul>
         </div>
-        <Switch>
-          <Route exact path={match.path}>
-            <ProductDetailInfo
-              product={product}
-              onProductAdd={props.onProductAdd}
+        <Router>
+          <Routes>
+            <Route
+              path={match.path}
+              element={
+                <ProductDetailInfo
+                  product={product}
+                  onProductAdd={props.onProductAdd}
+                />
+              }
             />
-          </Route>
-
-          <Route path={match.path + '/nutrition'}>
-            <ProductDetailNutrition nutrition={product.nutrition} />
-          </Route>
-
-          <Route path={match.path + '/storage'}>
-            <ProductDetailStorage storage={product.storage} />
-          </Route>
-        </Switch>
+            <Route
+              path={match.path + '/nutrition'}
+              element={<ProductDetailNutrition nutrition={product.nutrition} />}
+            />
+            <Route
+              path={match.path + '/storage'}
+              element={<ProductDetailStorage storage={product.storage} />}
+            />
+          </Routes>
+        </Router>
       </div>
     </div>
   );

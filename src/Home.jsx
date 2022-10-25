@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
           Order your groceries from <em>SuperM</em> with our easy to use app,
           and get your products delivered straight to your doorstep.
         </p>
-        <button> Start shopping</button>
+        <NavLink to="/products" className="btn btn-default">
+          Start shopping
+        </NavLink>
       </div>
       <img
         src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_700/v1607770215/react-tutorial/supermarket/home.jpg"
